@@ -10,6 +10,7 @@
         You must provide a <strong>Url</strong> with more than 2 characters
       </mat-error>
     </mat-form-field>
+    &nbsp;
     <mat-form-field class="example-full-width" appearance="fill">
       <mat-label>Size</mat-label>
       <input type="number" matInput formControlName="size" placeholder="size">
@@ -20,6 +21,7 @@
         You must provide a <strong>size</strong> below 600
       </mat-error>
     </mat-form-field>
+    &nbsp;
     <button mat-raised-button color="primary" type="submit" [disabled]="qrForm.invalid"
       (click)="onSubmit()">Generate</button>
   </form>
