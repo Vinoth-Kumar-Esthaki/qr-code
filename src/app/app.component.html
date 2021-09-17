@@ -1,0 +1,31 @@
+<div>
+  <form [formGroup]="qrForm" role="form">
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Url</mat-label>
+      <input type="text" matInput formControlName="value" placeholder="enter the url">
+      <mat-error *ngIf="url.errors?.required">
+        You must provide a <strong>Url</strong>
+      </mat-error>
+      <mat-error *ngIf="url.errors?.minlength">
+        You must provide a <strong>Url</strong> with more than 2 characters
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Size</mat-label>
+      <input type="number" matInput formControlName="size" placeholder="size">
+      <mat-error *ngIf="dimension.errors?.required">
+        You must provide a <strong>size</strong>
+      </mat-error>
+      <mat-error *ngIf="dimension.errors?.max">
+        You must provide a <strong>size</strong> below 600
+      </mat-error>
+    </mat-form-field>
+    <button mat-raised-button color="primary" type="submit" [disabled]="qrForm.invalid"
+      (click)="onSubmit()">Generate</button>
+  </form>
+</div>
+
+<div>
+  <qr-code [value]="value" [size]="size" errorCorrectionLevel="M"></qr-code>
+
+</div>
